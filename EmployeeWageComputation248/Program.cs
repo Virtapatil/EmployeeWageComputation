@@ -9,13 +9,14 @@ namespace EmployeeWageComputation248
             const int FULL_TIME = 1;
             const int PART_TIME = 2;
             const int MAX_WORKING_DAYS = 20;
+            const int MAX_WORKING_HRS = 50;
             const int EMP_RATE_PER_HR = 20;
-            int empHrs = 0, empWage = 0, totalWage=0, day=1;
-            
+            int empHrs = 0, empWage = 0,day=1, totalWage = 0, totalHrs = 0;
+
             Console.WriteLine("Welcome Employee Wage Computation");
             //UC1- EmployeeAttendence
             Random random = new Random();
-            for (day = 1; day <= MAX_WORKING_DAYS; day++)
+            while (day <= MAX_WORKING_DAYS && totalHrs <= MAX_WORKING_HRS)
             {
                 int empAttendence = random.Next(0, 3);//0 or 1
                 switch (empAttendence)
@@ -38,7 +39,7 @@ namespace EmployeeWageComputation248
                 //totalWage = totalWage + empWage;
                 totalWage += empWage;
             }
-            Console.WriteLine("Total Emplyee Wage {0} days:{1}", (day - 1), totalWage);
+            Console.WriteLine("Total Emplyee Wage for {0} days:{1}", (day -1), totalWage);
             Console.ReadLine();
         }
     }
